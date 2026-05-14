@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official developer and app information for Tiger Lane by Newat." />
+  <title>Tiger Lane | Developer Information</title>
+  <style>
+    :root {
+      --bg: #080a12;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --text: #f8f7f2;
+      --muted: #cfc9bd;
+      --accent: #ff7a18;
+      --accent-2: #f9cb28;
+      --accent-3: #00f5d4;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 24px 76px rgba(0, 0, 0, 0.38);
+      --radius: 34px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,122,24,0.28), transparent 30%),
+        radial-gradient(circle at 86% 10%, rgba(0,245,212,0.18), transparent 28%),
+        radial-gradient(circle at 60% 90%, rgba(249,203,40,0.14), transparent 30%),
+        linear-gradient(145deg, #080a12 0%, #10131d 44%, #161007 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        repeating-linear-gradient(35deg, transparent 0 18px, rgba(255,255,255,0.06) 18px 20px),
+        repeating-linear-gradient(145deg, transparent 0 24px, rgba(255,122,24,0.07) 24px 26px);
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 22px 0 48px; position: relative; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(8,10,18,0.68); backdrop-filter: blur(18px); position: sticky; top: 14px; z-index: 5; box-shadow: var(--shadow); }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 950; letter-spacing: 0.01em; }
+    .logo { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent)); color: #1c0d02; box-shadow: 0 0 28px rgba(255,122,24,0.45); }
+    .links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .links a { text-decoration: none; font-size: 0.9rem; color: var(--muted); border: 1px solid transparent; border-radius: 999px; padding: 9px 12px; transition: 0.2s ease; }
+    .links a:hover, .links a[aria-current="page"] { color: var(--text); border-color: var(--line); background: var(--panel); transform: translateY(-1px); }
+
+    .hero { display: grid; grid-template-columns: 1.16fr 0.84fr; gap: 22px; align-items: stretch; margin-top: 44px; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, var(--panel-strong), rgba(255,255,255,0.06)); backdrop-filter: blur(18px); box-shadow: var(--shadow); overflow: hidden; }
+    .intro { padding: clamp(28px, 6vw, 66px); position: relative; }
+    .eyebrow { display: inline-flex; padding: 8px 12px; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #1c0d02; font-weight: 950; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; }
+    h1 { margin: 22px 0 12px; font-size: clamp(2.45rem, 8vw, 5.75rem); line-height: 0.88; letter-spacing: -0.085em; }
+    .lead { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.7; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .badge { padding: 10px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.07); color: var(--muted); font-weight: 750; }
+    .visual { min-height: 380px; display: grid; place-items: center; padding: 28px; position: relative; }
+    .lane { width: min(300px, 74vw); aspect-ratio: 1; border-radius: 44px; background: linear-gradient(135deg, rgba(255,122,24,0.95), rgba(249,203,40,0.92)); transform: rotate(-8deg); display: grid; place-items: center; box-shadow: inset -30px -30px 70px rgba(0,0,0,0.28), 0 28px 90px rgba(255,122,24,0.25); animation: breathe 4s ease-in-out infinite; }
+    .lane::before { content: "Tiger\A Lane"; white-space: pre; text-align: center; font-size: clamp(2.6rem, 9vw, 4.6rem); line-height: 0.9; color: #170b02; font-weight: 1000; letter-spacing: -0.08em; }
+    .lane::after { content: "🐅"; position: absolute; transform: translate(110px, -120px) rotate(10deg); font-size: 3rem; filter: drop-shadow(0 12px 18px rgba(0,0,0,0.35)); }
+    @keyframes breathe { 0%,100% { transform: rotate(-8deg) scale(1); border-radius: 44px; } 50% { transform: rotate(5deg) scale(1.04); border-radius: 38% 62% 46% 54%; } }
+
+    .content { margin-top: 22px; padding: clamp(22px, 4vw, 42px); }
+    h2 { margin: 0 0 14px; font-size: clamp(1.45rem, 3vw, 2.2rem); letter-spacing: -0.04em; }
+    p, li { color: var(--muted); line-height: 1.75; font-size: 1.02rem; }
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .info { padding: 20px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,0.07); transition: 0.2s ease; }
+    .info:hover { transform: translateY(-4px); background: rgba(255,255,255,0.12); }
+    .info span { display: block; color: var(--muted); font-size: 0.86rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .info strong { display: block; font-size: 1.05rem; }
+    .mission { margin: 22px 0; padding: 20px; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(90deg, rgba(255,122,24,0.12), rgba(0,245,212,0.09)); }
+    .page-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
+    .page-link { display: block; padding: 20px; border-radius: 24px; border: 1px solid var(--line); background: rgba(255,255,255,0.07); text-decoration: none; transition: 0.2s ease; min-height: 150px; }
+    .page-link:hover { transform: translateY(-5px); background: rgba(255,255,255,0.12); }
+    .page-link strong { display: block; margin-bottom: 8px; }
+    .page-link p { margin: 0; }
+    .button { display: inline-flex; align-items: center; gap: 8px; padding: 13px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.08); text-decoration: none; font-weight: 850; transition: 0.2s ease; }
+    .button.primary { color: #1c0d02; border: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .button:hover { transform: translateY(-2px); }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .footer { margin-top: 22px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.92rem; }
+    @media (max-width: 820px) { .nav { align-items: flex-start; border-radius: 26px; flex-direction: column; } .links { justify-content: flex-start; } .hero, .info-grid, .page-grid { grid-template-columns: 1fr; } .visual { min-height: 270px; } }
+    @media (max-width: 480px) { .wrap { width: min(100% - 20px, 1120px); padding-top: 10px; } .links a { font-size: 0.82rem; padding: 8px 10px; } .intro, .content { padding: 22px; } h1 { font-size: 3.1rem; } .lane::after { transform: translate(82px, -96px) rotate(10deg); } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html"><span class="logo">🐅</span><span>Tiger Lane</span></a>
+      <div class="links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
+        <a href="marketing.html">Marketing</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <header class="card intro">
+        <span class="eyebrow">Official app page</span>
+        <h1>Tiger Lane</h1>
+        <p class="lead">Official developer and application information for Google Play Console reviewers and users. This page is maintained to provide a clear, open, and trustworthy view of the Tiger Lane app and its developer.</p>
+        <div class="badge-row">
+          <span class="badge">Privacy-first</span>
+          <span class="badge">Independent developer</span>
+          <span class="badge">Transparent support</span>
+        </div>
+      </header>
+      <aside class="card visual" aria-label="Tiger Lane visual identity">
+        <div class="lane"></div>
+      </aside>
+    </div>
+
+    <section class="card content">
+      <h2>Developer and App Information</h2>
+      <p>Tiger Lane is developed by Newat. This website connects the main public pages needed for transparency: privacy policy, support information, and project/marketing information.</p>
+
+      <div class="info-grid">
+        <div class="info"><span>Application name</span><strong>Tiger Lane</strong></div>
+        <div class="info"><span>Developer name</span><strong>Newat</strong></div>
+        <div class="info"><span>Developer account</span><strong><a href="mailto:janewatson198971@gmail.com">janewatson198971@gmail.com</a></strong></div>
+      </div>
+
+      <div class="mission">
+        <h2>Transparency Statement</h2>
+        <p>The goal of this page is to make the developer account and application information easy to review. Tiger Lane does not collect, store, or share user data. The developer is focused on improving the app, supporting users, and building trust through clear communication.</p>
+      </div>
+
+      <h2>Important Pages</h2>
+      <div class="page-grid">
+        <a class="page-link" href="privacy-policy.html"><strong>Privacy Policy</strong><p>Explains that Tiger Lane does not collect, store, transmit, or share user data.</p></a>
+        <a class="page-link" href="support.html"><strong>Support URL</strong><p>Provides a direct support contact for users and Google Play reviewers.</p></a>
+        <a class="page-link" href="marketing.html"><strong>Marketing URL</strong><p>Describes the project, developer intention, current monetization status, and future plans.</p></a>
+      </div>
+
+      <div class="cta-row">
+        <a class="button primary" href="privacy-policy.html">View privacy policy</a>
+        <a class="button" href="support.html">Get support</a>
+        <a class="button" href="marketing.html">Learn about Tiger Lane</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Newat. Tiger Lane.</span>
+      <span>Created for transparency and user trust.</span>
+    </footer>
+  </main>
+</body>
+</html>

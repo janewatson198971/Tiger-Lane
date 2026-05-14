@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marketing page for Tiger Lane by Newat." />
+  <title>Marketing | Tiger Lane</title>
+  <style>
+    :root {
+      --bg: #100a18;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --text: #fff7fb;
+      --muted: #dacbdd;
+      --accent: #ff8fab;
+      --accent-2: #ffd166;
+      --accent-3: #80ffdb;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      --radius: 32px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255,143,171,0.28), transparent 30%),
+        radial-gradient(circle at 88% 10%, rgba(128,255,219,0.18), transparent 28%),
+        linear-gradient(140deg, #100a18 0%, #181022 50%, #181006 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+      transform: rotate(1deg) scale(1.05);
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 22px 0 48px; position: relative; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(16,10,24,0.68); backdrop-filter: blur(18px); position: sticky; top: 14px; z-index: 5; box-shadow: var(--shadow); }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; }
+    .logo { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: conic-gradient(from 140deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent)); color: #170610; box-shadow: 0 0 30px rgba(255,143,171,0.42); }
+    .links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .links a { text-decoration: none; font-size: 0.9rem; color: var(--muted); border: 1px solid transparent; border-radius: 999px; padding: 9px 12px; transition: 0.2s ease; }
+    .links a:hover, .links a[aria-current="page"] { color: var(--text); border-color: var(--line); background: var(--panel); transform: translateY(-1px); }
+
+    .hero { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 22px; align-items: stretch; margin-top: 44px; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, var(--panel-strong), rgba(255,255,255,0.06)); backdrop-filter: blur(18px); box-shadow: var(--shadow); overflow: hidden; }
+    .intro { padding: clamp(28px, 6vw, 64px); }
+    .eyebrow { display: inline-flex; padding: 8px 12px; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #1d090e; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; }
+    h1 { margin: 22px 0 12px; font-size: clamp(2.25rem, 8vw, 5.35rem); line-height: 0.9; letter-spacing: -0.08em; }
+    .lead { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.28rem); line-height: 1.7; }
+    .showcase { min-height: 360px; display: grid; place-items: center; padding: 28px; }
+    .phone { width: min(250px, 68vw); aspect-ratio: 9 / 16; border-radius: 36px; border: 10px solid rgba(255,255,255,0.13); background: linear-gradient(160deg, rgba(255,143,171,0.9), rgba(255,209,102,0.88) 45%, rgba(128,255,219,0.82)); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 26px 90px rgba(255,143,171,0.24); padding: 22px; animation: tilt 4s ease-in-out infinite; }
+    .phone-screen { height: 100%; border-radius: 24px; background: rgba(16,10,24,0.75); padding: 16px; display: grid; align-content: space-between; }
+    .bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,0.2); margin-bottom: 10px; }
+    .bar:nth-child(2) { width: 72%; } .bar:nth-child(3) { width: 54%; } .bar:nth-child(4) { width: 82%; }
+    .spark { font-size: 3rem; text-align: center; }
+    @keyframes tilt { 0%,100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(4deg) translateY(-14px); } }
+
+    .content { margin-top: 22px; padding: clamp(22px, 4vw, 42px); }
+    h2 { margin: 0 0 14px; font-size: clamp(1.45rem, 3vw, 2.15rem); letter-spacing: -0.04em; }
+    p, li { color: var(--muted); line-height: 1.75; font-size: 1.02rem; }
+    .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .story { padding: 20px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,0.07); transition: 0.2s ease; position: relative; overflow: hidden; }
+    .story::after { content: ""; position: absolute; inset: auto -20px -30px auto; width: 86px; height: 86px; border-radius: 50%; background: rgba(255,255,255,0.08); }
+    .story:hover { transform: translateY(-4px); background: rgba(255,255,255,0.12); }
+    .story strong { display: block; margin-bottom: 8px; color: var(--text); }
+    .roadmap { margin: 22px 0; padding: 20px; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(90deg, rgba(255,143,171,0.12), rgba(128,255,219,0.09)); }
+    .button { display: inline-flex; align-items: center; gap: 8px; padding: 13px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.08); text-decoration: none; font-weight: 850; transition: 0.2s ease; }
+    .button.primary { color: #1d090e; border: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .button:hover { transform: translateY(-2px); }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .footer { margin-top: 22px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.92rem; }
+    @media (max-width: 820px) { .nav { align-items: flex-start; border-radius: 26px; flex-direction: column; } .links { justify-content: flex-start; } .hero, .story-grid { grid-template-columns: 1fr; } .showcase { min-height: 260px; } }
+    @media (max-width: 480px) { .wrap { width: min(100% - 20px, 1120px); padding-top: 10px; } .links a { font-size: 0.82rem; padding: 8px 10px; } .intro, .content { padding: 22px; } h1 { font-size: 3rem; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html"><span class="logo">🐅</span><span>Tiger Lane</span></a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
+        <a href="marketing.html" aria-current="page">Marketing</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <header class="card intro">
+        <span class="eyebrow">Marketing URL</span>
+        <h1>Building Tiger Lane with care</h1>
+        <p class="lead">Tiger Lane is an early-stage app created by Newat, a beginner developer focused on learning, improving, and delivering practical value to users.</p>
+      </header>
+      <aside class="card showcase" aria-label="Tiger Lane app preview">
+        <div class="phone">
+          <div class="phone-screen">
+            <div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+            <div class="spark">🐅</div>
+            <div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card content">
+      <h2>About the Project</h2>
+      <p>Tiger Lane is developed with attention, curiosity, and a strong desire to create something useful. As a beginner developer, Newat is actively learning from user feedback, improving the application step by step, and working to make the product clearer, smoother, and more valuable over time.</p>
+
+      <div class="story-grid">
+        <div class="story"><strong>Independent development</strong><p>Tiger Lane is built by an individual developer who is personally responsible for improving the app and supporting users.</p></div>
+        <div class="story"><strong>Value-first mindset</strong><p>The goal is to create a simple, helpful, and transparent experience before introducing any paid functionality.</p></div>
+        <div class="story"><strong>Open communication</strong><p>Users and Google Play reviewers can easily find privacy, support, and developer information on these linked pages.</p></div>
+      </div>
+
+      <h2>Current Monetization Status</h2>
+      <p>At this stage, Tiger Lane does not include paid features, subscriptions, or in-app purchases. The current priority is product quality, user trust, and learning how to make the application more useful.</p>
+
+      <div class="roadmap">
+        <h2>Future Plans</h2>
+        <p>In the future, paid features or subscriptions may be introduced to help support continued development and generate revenue. If monetization is added, it will be presented clearly inside the app and communicated transparently to users.</p>
+      </div>
+
+      <h2>Commitment to Users</h2>
+      <p>The developer is committed to improving Tiger Lane with care, honesty, and consistency. Feedback is welcome because it helps shape future updates and ensures the application grows in a useful direction.</p>
+
+      <h2>Developer Information</h2>
+      <p><strong>Developer:</strong> Newat<br><strong>Contact:</strong> <a href="mailto:janewatson198971@gmail.com">janewatson198971@gmail.com</a></p>
+
+      <div class="cta-row">
+        <a class="button primary" href="support.html">Contact developer</a>
+        <a class="button" href="privacy-policy.html">Privacy details</a>
+        <a class="button" href="index.html">Developer profile</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Newat. Tiger Lane.</span>
+      <span>Early-stage app. Built with care.</span>
+    </footer>
+  </main>
+</body>
+</html>
